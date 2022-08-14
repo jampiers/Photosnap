@@ -1,0 +1,138 @@
+@use 'variables' as v; 
+
+/** Media Queries **/
+@mixin telefono {
+    @media (min-width: v.$telefono) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (min-width: v.$tablet) {
+        @content;
+    }
+}
+
+@mixin tablet-xl {
+    @media (min-width: v.$tablet-xl) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: v.$desktop) {
+        @content;
+    }
+}
+
+@mixin desktop-xl {
+    @media (min-width: v.$desktop-xl) {
+        @content;
+    }
+}
+
+
+@mixin boton($color, $texto) {
+    width: 31rem;
+    height: 4.8rem;
+    padding: 1.4rem 6.8rem;
+    font-size: 1.5rem;
+    line-height: 1.953rem;
+    letter-spacing: .25rem;
+    font-weight: 700;
+    text-align: center;
+    background-color: $color;
+    color: $texto;
+    text-decoration: none;
+    border: none;
+    text-transform: uppercase;
+    transition: background-color .3s ease;
+
+    @include tablet { 
+        width: 15.8rem;
+        height: 4rem;
+        padding: 1.2rem 2.4rem;
+        font-size: 1.2rem;
+        letter-spacing: .2rem;
+        line-height: 1.562rem;
+    }
+
+    &:hover {
+        cursor: pointer;
+        color: $color;
+        background-color: v.$lightGrey;
+    }
+}
+
+@mixin enlace($color, $black: false, $smaller: false) {
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    line-height: 1.562rem;
+    letter-spacing: .2rem;
+    font-weight: 700;
+    color: $color;
+    display: flex;
+    align-items: center;
+    gap: 2.6rem;
+
+    @if($smaller) {
+        gap: 1.6rem;
+    }    
+
+    &::after {
+        content: '';
+        background-image: url(../img/arrow-white.svg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        width: 4.1rem;
+        height: 1.2rem;
+        transition: transform .4s;
+
+            
+        @if($black) {
+            background-image: url(../img/arrow-black.svg);
+        }
+    }
+
+    &:hover::after {
+        transform: translateX(2rem);
+    }
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+@mixin readStory {
+    margin-top: 2rem;
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+    text-transform: uppercase;
+    color: v.$white;
+    letter-spacing: 2px;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+
+    &::after {
+        content: '';
+        width: 4.1rem;
+        height: 1.2rem;
+        background-image: url(../img/arrow-white.svg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        transition: transform .4s;
+    }
+
+    &:hover::after {
+        transform: translateX(1rem);
+    }
+}
+
+@mixin grid($columnas, $espaciado ) {
+    display: grid;
+    gap: $espaciado;
+    grid-template-columns: repeat($columnas, 1fr);
+}

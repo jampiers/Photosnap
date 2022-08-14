@@ -1,0 +1,6 @@
+node_modules/
+gulpgile.js
+package-lock.json
+package.json
+gulpfile.js
+prueba.html

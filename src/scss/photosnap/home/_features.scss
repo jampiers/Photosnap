@@ -1,0 +1,52 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.home-features {
+    margin-block: 8rem;
+
+    @include m.tablet { 
+        margin-block: 12rem;
+    }
+
+    &__grid {
+        @include m.grid(1, 5.6rem);
+
+        @include m.telefono { 
+            max-width: 45.7rem;
+            align-items: center;
+            margin: 0 auto;
+        }
+
+        @include m.tablet { 
+            gap: 8rem;
+        }
+
+        @include m.tablet-xl { 
+            @include m.grid(3, 3rem);
+            align-items: baseline;
+            max-width: initial;
+        }
+    }
+}
+
+.card {
+    text-align: center;
+
+    &:nth-child(2) &__imagen {
+        @include m.tablet-xl { 
+            margin-bottom: 6.6rem;
+        }
+    }
+
+    &__imagen {
+        margin-inline: auto;
+        margin-bottom: 4.8rem;
+    }
+
+    &__heading {
+        margin-bottom: 1.6rem;
+        color: v.$black;
+    }
+
+
+}

@@ -1,0 +1,108 @@
+@use 'variables' as v; 
+@use 'mixins' as m; 
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+  
+body {
+    font-family: v.$font;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: lighten(v.$black, 40%);
+    line-height: 2.5rem;
+    overflow-x: hidden;
+
+    &[data-scroll='false'] {
+        overflow: hidden;
+
+        @include m.tablet { 
+            overflow-y: auto;
+        }
+    }
+}
+
+p {
+    margin: 0;
+}
+
+
+[class$="__contenedor"]{
+    padding: 0 3.2rem;
+    max-width: 111rem;
+    margin: 0 auto;
+
+    @include m.tablet { 
+        padding: 0 3.9rem;
+    }
+
+    @include m.desktop{ 
+        padding: 0;
+    }
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+h1, h2, h3, h4 {
+    margin: 0;
+    font-family: v.$font;
+    font-weight: 700;
+}
+
+h1,
+h2 {
+    color: v.$white;
+    font-size: 3.2rem;
+    line-height: 4rem;
+    letter-spacing: .33rem;
+    text-transform: uppercase;
+
+    @include m.tablet { 
+        font-size: 4rem;
+        line-height: 4.8rem;
+        letter-spacing: .416rem;
+    }
+}
+
+h2 {
+    color: v.$black;
+}
+
+h3 {
+    color: v.$white;
+    font-size: 1.8rem;
+    line-height: 2.5rem;
+}
+
+h4 {
+    color: v.$black;
+    font-size: 1.2rem;
+    line-height: 1.562rem;
+    letter-spacing: .2rem;
+}
+
+button {
+    background-color: transparent;
+    border: 0;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
