@@ -8,6 +8,16 @@
         margin-block: 12rem;
     }
 
+    &--margin {
+        @include m.tablet { 
+            margin-block: 11.2rem;
+        }
+
+        @include m.tablet-xl { 
+            margin-block: 16rem;
+        }
+    }
+
     &__grid {
         @include m.grid(1, 5.6rem);
 
@@ -25,6 +35,23 @@
             @include m.grid(3, 3rem);
             align-items: baseline;
             max-width: initial;
+            row-gap: 10.4rem;
+        }
+
+        &--2 {
+            @include m.tablet { 
+                max-width: initial;
+                @include m.grid(2, 1.1rem);
+                row-gap: 7.2rem;
+                align-items: baseline;
+            }
+
+            @include m.tablet-xl { 
+                @include m.grid(3, 3rem);
+                align-items: baseline;
+                max-width: initial;
+                row-gap: 10.4rem;
+            }
         }
     }
 }
@@ -41,11 +68,18 @@
     &__imagen {
         margin-inline: auto;
         margin-bottom: 4.8rem;
+        animation-name: updown;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
     }
 
     &__heading {
         margin-bottom: 1.6rem;
         color: v.$black;
+    }
+
+    &__padding {
+        padding-right: 1rem;
     }
 
 

@@ -1,0 +1,68 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.beta {
+    height: 28.8rem;
+    background-image: url(../img/bg-beta-mobile.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+
+    &::after {
+        content: '';
+        width: 12.8rem;
+        height: .6rem;
+        background: linear-gradient(26.57deg, v.$orange-v 0%, v.$red-v 43.29%, v.$blue-v 83.33%);
+        position: absolute;
+        top: 0;
+        left: 3.3rem;
+
+        @include m.tablet { 
+            width: .6rem;
+            height: 28rem;
+            left: 0;
+        }
+    }
+
+    @include m.tablet { 
+        background-image: url(../img/bg-beta-tablet.jpg);
+        height: 28rem;
+    }
+
+    @include m.tablet-xl { 
+        background-image: url(../img/bg-beta-desktop.jpg);
+    }
+
+    &__contenedor {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+    }
+
+    &__contenido {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2.4rem;
+
+        @include m.tablet { 
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
+    }
+
+    &__heading {
+        @include m.tablet { 
+            flex-basis: 40rem;
+        }       
+    }
+
+    &__enlace {
+        @include m.enlace(v.$white);
+        display: inline-flex;
+    }
+
+}

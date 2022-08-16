@@ -91,7 +91,8 @@
         border-bottom: 1px solid transparentize(v.$white, .6%);
     }
 
-    &__autor {
+    &__autor,
+    &__fecha {
         font-size: 1.3rem;
         line-height: 1.7rem;
     }

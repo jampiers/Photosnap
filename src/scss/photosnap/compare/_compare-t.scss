@@ -1,0 +1,69 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.compare-t {
+    display: none;
+
+    @include m.tablet { 
+        display: block;
+        margin-bottom: 11.2rem;
+    }
+
+    @include m.tablet-xl { 
+        margin-bottom: 16rem;
+    }
+
+    &__heading-h1 {
+        text-align: center;
+        margin-bottom: 6.4rem;
+    }
+
+    &__heading,
+    &__heading-h1,
+    &__heading-s {
+        color: v.$black;
+        text-transform: uppercase;
+    }
+
+    &__heading {
+        margin-right: auto;
+        padding-left: 2.4rem;
+    }
+
+    &__heading-s {
+        &:nth-child(1) {
+            margin-right: auto;
+            padding-left: 2.4rem;
+        }
+    }
+
+    &__header,
+    &__contenido {
+        display: grid;
+        grid-template-columns: 1fr 14rem 14rem 14rem;
+        justify-items: center;
+    }
+
+    &__header {
+        padding-bottom: 2.3rem;
+        border-bottom: 1px solid v.$black;
+    }
+
+    &__width {
+        @include m.tablet-xl { 
+            width: 73.1rem;
+            margin: 0 auto;
+        }
+    }
+
+    &__contenido {
+        padding-top: 2.3rem;
+        padding-bottom: 2.35rem;
+        border-bottom: 1px solid v.$lightGrey;
+
+        @include m.tablet-xl { 
+            padding-block: 2.35rem;
+        }
+    }
+    
+}

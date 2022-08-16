@@ -2,10 +2,21 @@
 @use 'base/mixins' as m;
 
 .hero {
+    animation-name: hero;
+    animation-duration: 1s;
+
     @include m.telefono { 
         display: flex;
         flex-direction: row-reverse;
         height: 65rem;
+    }
+
+    &--smaller {
+        @include m.telefono { 
+            display: flex;
+            flex-direction: row-reverse;
+            height: 49rem;
+        }
     }
 
     &__imagen-c {
@@ -25,7 +36,8 @@
         object-fit: cover;
     }
 
-    &__info-c {
+    &__info-c,
+    &--smaller-2 {
         background-color: v.$black;
         height: 41.9rem;
         display: flex;
@@ -59,7 +71,20 @@
                 transform: translateY(-50%);
             }
         }
-    
+    }
+
+    &--smaller-2 {
+        height: 30rem;
+
+        @include m.telefono { 
+            height: 49rem;   
+        }
+
+        &::after {
+            @include m.telefono { 
+                height: 14.4rem;
+            }
+        }
     }
 
     &__info {
@@ -85,9 +110,15 @@
 
     &__texto {
         margin-bottom: 2.3rem;
+        color: v.$white;
+        opacity: .6;
 
         @include m.tablet { 
             margin-bottom: 4.8rem;
+        }
+
+        &--nomargin{
+             margin: 0
         }
     }
 

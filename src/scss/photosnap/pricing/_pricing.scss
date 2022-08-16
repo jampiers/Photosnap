@@ -1,0 +1,243 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.pricing {
+    margin-block: 6.4rem;
+
+    @include m.tablet { 
+        margin-block: 11.2rem;
+    }
+
+    @include m.tablet-xl{ 
+        margin-top: 12rem;
+        margin-bottom: 19.1rem;
+    }
+
+    &__switch {
+        display: flex;
+        align-items: center;
+        gap: 3.2rem;
+        justify-content: center;
+    }
+
+    &__monthly,
+    &__yearly {
+        color: v.$black;
+        font-weight: 700;
+        opacity: .5;
+    }
+
+    &--activo {
+        opacity: 1;
+    }
+
+    &__boton {
+        appearance: none;
+        width: 6.4rem;
+        height: 3.2rem;
+        background-color: v.$lightGrey;
+        border-radius: 1.6rem;
+        position: relative;
+        transition: all .3s ease;
+
+        &:hover{
+            cursor: pointer;
+        }
+
+        &::before {
+            content: '';
+            width: 2.4rem;
+            height: 2.4rem;
+            background-color: v.$black;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: .4rem;
+            right: 0;
+            transform: translateY(-50%);
+            transition: all .3s ease;
+        }
+
+        &:checked {
+            &::before {
+                left: calc(100% - 2.8rem);
+                background-color: v.$white;
+            }
+        }
+
+        &:checked {
+            background-color: v.$black;
+        }
+    }
+    
+    &__contenido {
+        margin-top: 4rem;
+        @include m.grid(1, 2.4rem);
+
+        @include m.telefono { 
+            width: 35rem;
+            margin-inline: auto;
+        }
+
+        @include m.tablet { 
+            width: 100%;
+        }
+
+        @include m.tablet-xl { 
+            @include m.grid(3, 1fr);
+            gap: 3rem;
+            margin-top: 7.1rem;
+        }
+    }
+}
+
+.card-p {
+    text-align: center;
+    background-color: #f5f5f5;
+    padding: 5.6rem 2.2rem 4rem;
+
+    @include m.tablet { 
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 5.3rem;
+        grid-auto-flow: dense;
+        text-align: left;
+        padding: 4rem;
+    }
+
+    @include m.tablet-xl { 
+        display: block;
+        text-align: center;   
+        padding: 5.6rem 4rem 4rem;
+    }
+
+    &:nth-child(2) {
+        background-color: v.$black;
+        position: relative;
+
+        @include m.tablet-xl { 
+            margin-top: -3.1rem;
+            margin-bottom: -3.1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+    }
+
+    &:nth-child(2) ::before {
+        content: '';
+        height: .6rem;
+        width: 100%;
+        background: linear-gradient(26.57deg, v.$orange-v 0%, v.$red-v 43.29%, v.$blue-v 83.33%);
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        @include m.tablet { 
+            width: .6rem;
+            height: 100%;
+        }
+
+        @include m.tablet-xl { 
+            width: 100%;
+            height: .6rem;
+        }
+    }
+
+    &:nth-child(2) .card-p__heading,
+    &:nth-child(2) .card-p__monthly,
+    &:nth-child(2) .card-p__boton,
+    &:nth-child(2) .card-p__yearly {
+        color: v.$white;
+    }
+
+    &:nth-child(2) .card-p__texto,
+    &:nth-child(2) .card-p__month {
+        color: v.$white;
+        opacity: .6;
+    }
+
+    &:nth-child(2) .card-p__boton {
+        @include m.boton(v.$white, v.$black);
+        width: 24.5rem;
+        height: 4rem;
+        margin: 0 auto;
+        font-size: 1.2rem;
+        line-height: 1.562rem;
+        letter-spacing: .2rem;
+        margin-top: 4rem;
+
+        @include m.tablet { 
+            width: 100%;
+        }
+
+        &:hover {
+            color: v.$black;
+        }
+    }
+
+
+    &__heading {
+        font-weight: 700;
+        font-size: 2.4rem;
+        color: v.$black;
+        margin-bottom: 1.8rem;
+    }
+
+    &__texto {
+        margin-bottom: 4rem;
+
+        @include m.tablet { 
+            margin: 0;
+            grid-column: 1 / 2;
+        }
+
+        @include m.tablet-xl { 
+            margin-bottom: 4rem;
+        }
+    }
+
+    &__monthly,
+    &__yearly {
+        font-weight: 700;
+        font-size: 40px;
+        line-height: 48px;
+        letter-spacing: 4.16667px;
+        color: v.$black;
+
+        @include m.tablet { 
+            grid-column: 2 / 3;
+            margin-left: auto;   
+        }
+
+        @include m.tablet-xl { 
+            margin: 0;
+        }
+    }
+
+    &__month {
+        @include m.tablet { 
+            grid-column: 2 / 3;
+            margin-left: auto;
+        }
+
+        @include m.tablet-xl { 
+            margin: 0;
+        }
+    }
+
+    &__boton {
+        @include m.boton(v.$black, v.$white);
+        width: 24.5rem;
+        height: 4rem;
+        margin: 0 auto;
+        font-size: 1.2rem;
+        line-height: 1.562rem;
+        letter-spacing: .2rem;
+        margin-top: 4rem;
+
+        @include m.tablet { 
+            width: 100%;
+        }
+    }
+}

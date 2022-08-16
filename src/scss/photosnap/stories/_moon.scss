@@ -1,0 +1,154 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.moon {
+    animation-name: hero;
+    animation-duration: 1s;
+
+    @include m.telefono { 
+        background-image: url(../img/moon-of-appalacia-stories-tablet.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 65rem;
+        position: relative;
+    }
+
+    @include m.desktop { 
+        background-image: url(../img/moon-of-appalacia-stories-desktop.jpg);
+    }
+
+    &__imagen {
+        background-image: url(../img/moon-of-appalacia-stories-mobile.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 31.7rem;
+
+        @include m.telefono { 
+            display: none;
+        }
+    }
+
+    &__info-c {
+        background-color: v.$black;
+        height: 49.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @include m.telefono { 
+            display: none;
+        }
+    }
+
+    &__info {
+        padding-inline: 2.9rem;
+        height: 39.9rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    &__h4 {
+        margin-bottom: 1.6rem;
+        text-transform: uppercase;
+    }
+
+    &__heading {
+        margin-bottom: 1.6rem;
+    }
+
+    &__fecha-c {
+        margin-bottom: 2.4rem;
+        font-size: 1.3rem;
+        line-height: 1.693rem;
+        color: v.$white;
+        display: flex;
+        align-items: center;
+        gap: .9rem;
+    }
+
+    &__fecha {
+        opacity: .75;
+    }
+
+    &__autor {
+        opacity: 1;
+    }
+
+    &__texto {
+        margin-bottom: 2.4rem;
+        opacity: .6;
+        color: v.$white;
+    }
+
+    &__enlace {
+        @include m.enlace(v.$white);   
+    }
+
+    &__contenedor {
+        display: none;
+        @include m.telefono { 
+            display: block;
+        }
+
+        @include m.desktop-xl { 
+            max-width: 121.7rem;
+        }
+    }
+
+    &__tb-c {
+        @include m.telefono  { 
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 33rem;
+        }
+
+        @include m.tablet { 
+            width: 38.7rem;
+        }
+        
+    }
+
+    &__tb-h4 {
+        margin-bottom: 2.4rem;
+        text-transform: uppercase;
+    }
+
+    &__tb-heading {
+        margin-bottom: 1.6rem;
+    }
+
+    &__tb-fecha-c {
+        display: flex;
+        align-items: center;
+        gap: .9rem;
+        margin-bottom: 2.4rem;
+        font-size: 1.3rem;
+        line-height: 1.693rem;
+        color: v.$white;
+        display: flex;
+        align-items: center;
+        gap: .9rem;
+    }
+
+    &__tb-fecha {
+        opacity: .75;   
+    }
+
+    &__tb-autor {
+        opacity: 1;
+    }
+
+    &__tb-texto {
+        margin-bottom: 2.4rem;
+        color: v.$white;
+        opacity: .6;
+    }
+
+    &__tb-enlace {
+        @include m.enlace(v.$white);
+    }
+}
